@@ -1,9 +1,10 @@
 import schedule
 import time
+from main import update_all_csv
 
 def job():
-    # SQLAlchemy 쿼리 실행 + CSV 저장
-    print("CSV 업데이트 완료!")
+    update_all_csv()
+    print("CSV 업데이트 완료")
 
 schedule.every().day.at("17:00").do(job)
 

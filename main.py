@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import text
 from db import engine
-from queries import DAU_QUERY, CTR_QUERY
+from queries import DAU_QUERY, CTR_QUERY, CVR_QUERY, ARPU_QUERY
 
 def save_query_to_csv(query, filename):
     df = pd.read_sql(text(query), engine)
@@ -9,9 +9,11 @@ def save_query_to_csv(query, filename):
     print(f"{filename} 저장 완료!")
 
 def update_all_csv():
-    save_query_to_csv(DAU_QUERY, "dau.csv")
-    save_query_to_csv(CTR_QUERY, "ctr.csv")
-
+        save_query_to_csv(DAU_QUERY, "dau.csv")
+        save_query_to_csv(CTR_QUERY, "ctr.csv")
+        save_query_to_csv(CVR_QUERY, "cvr.csv")
+        save_query_to_csv(ARPU_QUERY, "arpu.csv")
 # 테스트용: 바로 실행
 if __name__ == "__main__":
     update_all_csv()
+
